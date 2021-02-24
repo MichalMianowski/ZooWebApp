@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZOO Application</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <!-- Page header -->
+    <h1>Welcome in your ZOO!</h1>
+    <br>
+    <div class="management-btn">
+        <h2>Manage</h2>
+        <form>
+            <button class="normal-button" th:formaction="'/animals'">Animals</button>
+            <button class="normal-button" th:formaction="'/employees'">Employees</button>
+            <button class="normal-button" th:formaction="'/enclosures'">Enclosures</button>
+        </form>
+
+    </div>
+    <!-- Break line -->
+
+
+</div>
+</body>
+</html>

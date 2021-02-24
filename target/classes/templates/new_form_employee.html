@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoo Application - new employee</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <!-- Page header -->
+    <h1>Enter New Employee</h1>
+
+    <!--/*@thymesVar id="employee" type="zoo_webapp.zoomanager.Employee.Employee"*/-->
+    <form action="#" th:action="@{/save/employee}" th:object="${employee}" method="post">
+        <table class="styled-table">
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}"></td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td><input type="text" th:field="*{surname}"></td>
+            </tr>
+            <tr>
+                <td>Birth Date:</td>
+                <td><input type="date" th:field="*{birthDate}"></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><input type="number" th:field="*{salary}"></td>
+            </tr>
+            <tr>
+                <td>Bank Account Nr:</td>
+                <td><input type="text" th:field="*{bankAccountNr}"></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="number" th:field="*{phoneNumber}"></td>
+            </tr>
+            <tr>
+                <td>Mail:</td>
+                <td><input type="text" th:field="*{mail}"></td>
+            </tr>
+            <tr>
+                <td>Employment Date:</td>
+                <td><input type="date" th:field="*{employmentDate}"></td>
+            </tr>
+            <tr>
+
+            <tr>
+                <td colspan="2"><button class = "small-button" type = "submit">Save</button></td>
+            </tr>
+
+        </table>
+    </form>
+
+
+</div>
+</body>
+</html>

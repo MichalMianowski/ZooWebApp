@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZOO Application</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <!-- Page header -->
+    <h1>Employees</h1>
+
+    <!-- Entry to a new page -->
+    <form><button class = "normal-button" th:formaction="'/new/employee'">Enter new employee</button></form>
+
+    <!-- Table -->
+    <table class="styled-table">
+        <!-- Table header -->
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birth Date</th>
+            <th>Salary</th>
+            <th>Bank Account Nr</th>
+            <th>Phone Number</th>
+            <th>Mail</th>
+            <th>Employment Date</th>
+
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <!-- Table header -->
+        <tbody>
+        <!--/*@thymesVar id="employee" type="zoo_webapp.zoomanager.Employee.Employee"*/-->
+        <!--/*@thymesVar id="listEmployee" type="java.util.List<zoo_webapp.zoomanager.Employee.Employee>"*/-->
+        <tr th:each = "employee : ${listEmployees}">
+            <!--/*@thymesVar id="employee" type="zoo_webapp.zoomanager.Employee.Employee"*/-->
+            <!--/*@thymesVar id="id" type="java.lang.Number"*/-->
+            <td th:text = "${employee.id}">ID</td>
+            <!--/*@thymesVar id="name" type="java.lang.String"*/-->
+            <td th:text = "${employee.name}">Name</td>
+            <!--/*@thymesVar id="surname" type="java.lang.String"*/-->
+            <td th:text = "${employee.surname}">Surname</td>
+            <!--/*@thymesVar id="birthDate" type="java.lang.String"*/-->
+            <td th:text = "${employee.birthDate}">Birth Date</td>
+            <!--/*@thymesVar id="salary" type="java.lang.Integer"*/-->
+            <td th:text = "${employee.salary}">Salary</td>
+            <!--/*@thymesVar id="bankAccountNr" type="java.lang.String"*/-->
+            <td th:text = "${employee.bankAccountNr}">Bank Account Nr</td>
+            <!--/*@thymesVar id="phoneNumber" type="java.lang.Integer"*/-->
+            <td th:text = "${employee.phoneNumber}">Phone Number</td>
+            <!--/*@thymesVar id="mail" type="java.lang.String"*/-->
+            <td th:text = "${employee.mail}">Mail</td>
+            <!--/*@thymesVar id="employmentDate" type="java.lang.String"*/-->
+            <td th:text = "${employee.employmentDate}">Employment Date</td>
+
+            <td> <form><button class = "small-button" th:formaction="@{'/edit/employee/' + ${employee.id}}">Edit</button></form></td>
+            <!--/*@thymesVar id="id" type="java.lang.Number"*/-->
+            <td> <form><button class = "small-button" th:formaction="@{'/delete/employee/' + ${employee.id}}">Delete</button></form></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <form><button class = "normal-button" th:formaction="'/directorView'">Return To Main Page</button></form>
+</div>
+</body>
+</html>

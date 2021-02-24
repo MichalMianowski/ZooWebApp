@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZOO Application</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <h1>Welcome in the ZOO!</h1>
+    <h2>Check our animals!</h2>
+    <body>
+        <table class="styled-table">
+            <!-- Table header -->
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Species</th>
+                <th>Is Trained</th>
+                <th>Is in shows</th>
+                <th>Diet</th>
+            </tr>
+            </thead>
+            <!-- Table header -->
+            <tbody>
+
+
+            <!--/*@thymesVar id="listAnimals" type="java.util.ArrayList<zoo_webapp.zoomanager.Animal.Animal>"*/-->
+            <tr th:each = "animal : ${listAnimals}">
+                <!--/*@thymesVar id="id" type="java.lang.Integer"*/-->
+                <td th:text = "${animal.id}">ID</td>
+                <!--/*@thymesVar id="speciesName" type="java.lang.String"*/-->
+                <td th:text = "${animal.speciesName}">Species</td>
+                <!--/*@thymesVar id="areTrained" type="java.lang.String"*/-->
+                <td th:text = "${animal.areTrained}">Is Trained</td>
+                <!--/*@thymesVar id="partInShows" type="java.lang.String"*/-->
+                <td th:text = "${animal.partInShows}">Is in shows</td>
+                <!--/*@thymesVar id="diet" type="java.lang.String"*/-->
+                <td th:text = "${animal.diet}">Diet</td>
+
+            </tr>
+            </tbody>
+        </table>
+
+    <br>
+    <br>
+        <form><button class = "normal-button" th:formaction="'/update/client'">Change your info</button></form>
+
+    </body>
+</div>
+</html>

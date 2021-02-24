@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZOO Application</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+
+<video autoplay muted loop id="myVideo">
+    <source th:src="@{/images/background_video.mp4}" type="video/mp4">
+</video>
+
+<div align="center" class="content">
+    <img class="logo" th:src="@{/images/logo.png}" align="center" alt="Logo"/>
+    <br>
+    <!-- Page header -->
+    <h1 th:align="center">Welcome!</h1>
+    <h2 th:align="center">Choose one of ZOO Directors or log in as a guest!</h2>
+    <!-- Break line -->
+    <br>
+    <div class="row">
+        <div class="columnEnd"></div>
+        <div class="column">
+            <!-- Table -->
+            <table class="styled-table">
+                <!-- Table header -->
+                <caption>
+                    <h3>ZOO DIRECTORS</h3>
+                </caption><br>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th colspan="2">Surname</th>
+                </tr>
+                </thead>
+                <!-- Table header -->
+                <tbody>
+                <tr>
+                    <td>Marcelina</td>
+                    <td>Kowalska</td>
+                    <td> <form><button class = "small-button" th:formaction="'/directorView'">Enter</button></form></td>
+                </tr>
+                <tr>
+                    <td>Michał</td>
+                    <td>Mianowski</td>
+                    <td> <form><button class = "small-button" th:formaction="'/directorView'">Enter</button></form></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="column">
+            <!--/*@thymesVar id="client" type="zoo_webapp.zoomanager.Client.Client"*/-->
+            <form action="#" th:action="@{/save/client}" th:object="${client}" method="post">
+                <caption>
+                    <h3>Enter as a guest</h3>
+                </caption>
+                <table class="styled-table">
+                    <thead>
+                    <tr>
+                        <th colspan="2" align="center">Write down your info</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name:</td>
+                            <td>
+                                <input type="text" th:field="*{name}"></td>
+                        </tr>
+                        <tr>
+                            <td>Surname:</td>
+                            <td>
+                                <input type="text" th:field="*{surname}"></td>
+                        </tr>
+                        <tr>
+                            <td>Program:</td>
+                            <td>
+                                <input type="text" th:field="*{program}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Disability:
+                            </td>
+                            <td>
+                                <input type="text" th:field="*{disability}">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan=100% align="center">
+                                <button class = "small-button" type = "submit">Save</button>
+                                <br>
+                                </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div class="columnEnd"></div>
+    </div>
+
+</div>
+</body>
+</html>

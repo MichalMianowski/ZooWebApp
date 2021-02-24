@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZOO Application</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <!-- Page header -->
+    <h1>Enclosures</h1>
+
+    <!-- Entry to a new page -->
+    <form><button class = "normal-button" th:formaction="'/new/enclosure'">Enter new enclosure</button></form>
+
+    <!-- Table -->
+    <table class="styled-table">
+        <!-- Table header -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Surface</th>
+                <th>Attractions for Animals</th>
+                <th>Allowance of Visitors</th>
+                <th>Number of Building</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <!-- Table header -->
+        <tbody>
+        <!--/*@thymesVar id="enclosure" type="zoo_webapp.zoomanager.Enclosure.Enclosure"*/-->
+        <!--/*@thymesVar id="list" type="java.util.List<zoo_webapp.zoomanager.Enclosure.Enclosure>"*/-->
+        <tr th:each = "enclosure : ${list}">
+            <!--/*@thymesVar id="enclosure" type="zoo_webapp.zoomanager.Enclosure.Enclosure"*/-->
+            <!--/*@thymesVar id="id" type="java.lang.Number"*/-->
+            <td th:text = "${enclosure.id}">ID</td>
+            <!--/*@thymesVar id="type" type="java.lang.String"*/-->
+            <td th:text = "${enclosure.typeEnclosure}">Type</td>
+            <!--/*@thymesVar id="surface" type="java.lang.Number"*/-->
+            <td th:text = "${enclosure.surface}">Surface</td>
+            <!--/*@thymesVar id="attractions" type="java.lang.String"*/-->
+            <td th:text = "${enclosure.attractions}">Attractions for Animals</td>
+            <!--/*@thymesVar id="areVisitorsAllowed" type="java.lang.String"*/-->
+            <td th:text = "${enclosure.areVisitorsAllowed}">Allowance of Visitors</td>
+            <td th:text = "${enclosure.nrBuilding}">Number of Building</td>
+            <td> <form><button class = "small-button" th:formaction="@{'/edit/enclosure/' + ${enclosure.id}}">Edit</button></form></td>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <!--/*@thymesVar id="id" type="java.lang.Number"*/-->
+            <td> <form><button class = "small-button" th:formaction="@{'/delete/enclosure/' + ${enclosure.id}}">Delete</button></form></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <form><button class = "normal-button" th:formaction="'/directorView'">Return To Main Page</button></form>
+</div>
+</body>
+</html>

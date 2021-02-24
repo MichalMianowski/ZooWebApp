@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZOO Application</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <!-- Page header -->
+    <h1>Edit Your Info</h1>
+    <!--/*@thymesVar id="client" type="zoo_webapp.zoomanager.Client.Client"*/-->
+    <form action="#" th:action="@{/saveEdit}" th:object="${client}" method ="post">
+
+        <table class="styled-table">
+
+            <tr>
+                <td>Name:</td>
+                <!--/*@thymesVar id="name" type="java.lang.String"*/-->
+                <td><input type="text" th:field="*{name}"></td>
+            </tr>
+
+            <tr>
+                <td>Surname:</td>
+                <!--/*@thymesVar id="id" type="java.lang.Integer"*/-->
+                <td><input type="text" th:field="*{surname}"></td>
+            </tr>
+            <tr>
+                <td>Program:</td>
+                <td><input type="text" th:field="*{program}"></td>
+            </tr>
+            <tr>
+                <td>Disability:</td>
+                <td><input type="text" th:field="*{disability}"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button class = "small-button" type = "submit">Save</button></td>
+            </tr>
+
+        </table>
+    </form>
+
+</div>
+
+</body>
+</html>

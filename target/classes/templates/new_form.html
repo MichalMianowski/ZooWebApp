@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoo Application - new enclosure</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <!-- Page header -->
+    <h1>Enter New Enclosure</h1>
+
+    <!--/*@thymesVar id="enclosure" type="zoo_webapp.zoomanager.Enclosure.Enclosure"*/-->
+<form action="#" th:action="@{/save/enclosure}" th:object="${enclosure}" method="post">
+    <table class="styled-table">
+        <tr>
+            <td>Type:</td>
+            <td>
+            <!--/*@thymesVar id="typeEnclosure" type="java.lang.String"*/-->
+            <input type="text" th:field="*{typeEnclosure}"></td>
+        </tr>
+        <tr>
+            <td>Surface:</td>
+            <td>
+                <!--/*@thymesVar id="surface" type="java.lang.Number"*/-->
+                <input type="text" th:field="*{surface}"></td>
+        </tr>
+        <tr>
+            <td>Attractions:</td>
+            <td>
+                <!--/*@thymesVar id="attractions" type="java.lang.String"*/-->
+                <input type="text" th:field="*{attractions}">
+            </td>
+        </tr>
+        <tr>
+            <td>Are Visitors Allowed:
+            </td>
+            <td>
+                <!--/*@thymesVar id="areVisitorsAllowed" type="java.lang.Boolean"*/-->
+                <input type="text" th:field="*{areVisitorsAllowed}">
+            </td>
+        </tr>
+        <tr>
+            <td>Nr of Building:</td>
+            <td>
+            <!--/*@thymesVar id="nrBuilding" type="java.lang.Number"*/-->
+            <input type="text" th:field="*{nrBuilding}"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button class = "small-button" type = "submit">Save</button></td>
+        </tr>
+    </table>
+</form>
+
+
+</div>
+</body>
+</html>

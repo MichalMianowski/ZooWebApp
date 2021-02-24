@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoo Application - new animal</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <!-- Page header -->
+    <h1>Enter New Animal</h1>
+
+    <!--/*@thymesVar id="animal" type="zoo_webapp.zoomanager.Animal.Animal"*/-->
+    <form action="#" th:action="@{/save/animal}" th:object="${animal}" method="post">
+        <table class="styled-table">
+            <tr>
+                <td>Species:</td>
+                <td>
+                    <!--/*@thymesVar id="SpeciesName" type="java.lang.String"*/-->
+                    <input type="text" th:field="*{speciesName}">
+                </td>
+            </tr>
+            <tr>
+                <td>Diet:</td>
+                <td>
+                    <!--/*@thymesVar id="Diet" type="java.lang.String"*/-->
+                    <input type="text" th:field="*{diet}">
+                </td>
+            </tr>
+            <tr>
+                <td>Is Trained:</td>
+                <td>
+                    <!--/*@thymesVar id="IsTrained" type="java.lang.String"*/-->
+                    <input type="text" th:field="*{areTrained}"></td>
+            </tr>
+            <tr>
+                <td>Is In Shows:</td>
+                <td>
+                    <!--/*@thymesVar id="IsInShows" type="java.lang.String"*/-->
+                    <input type="text" th:field="*{partInShows}"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button class = "small-button" type = "submit">Save</button></td>
+            </tr>
+        </table>
+    </form>
+
+
+</div>
+</body>
+</html>

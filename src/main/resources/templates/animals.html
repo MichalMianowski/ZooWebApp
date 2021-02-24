@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmls="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ZOO Application</title>
+    <link rel=“icon” href="@{/images/app_icon.png}" />
+    <link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+</head>
+<body>
+<img id='1' th:src="@{/images/logo.png}" align="center" alt="Logo" class="center"/>
+<br>
+<div align="center">
+    <!-- Page header -->
+    <h1>Animals</h1>
+
+
+    <!-- Entry to a new page -->
+    <form><button class = "normal-button" th:formaction="'/new/animal'">Enter new animal</button></form>
+
+    <!-- Table -->
+    <table class="styled-table">
+        <!-- Table header -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Species</th>
+                <th>Is Trained</th>
+                <th>Is in shows</th>
+                <th>Diet</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <!-- Table header -->
+        <tbody>
+        <!--/*@thymesVar id="animal" type="zoo_webapp.zoomanager.Animal.Animal"*/-->
+        <!--/*@thymesVar id="listAnimal" type="java.util.List<zoo_webapp.zoomanager.Animal.Animal>"*/-->
+        <tr th:each = "animal : ${listAnimals}">
+            <!--/*@thymesVar id="animal" type="zoo_webapp.zoomanager.Animal.Animal"*/-->
+            <!--/*@thymesVar id="id" type="java.lang.Number"*/-->
+            <td th:text = "${animal.id}">ID</td>
+            <!--/*@thymesVar id="speciesName" type="java.lang.String"*/-->
+            <td th:text = "${animal.speciesName}">Species</td>
+            <!--/*@thymesVar id="areTrained" type="java.lang.String"*/-->
+            <td th:text = "${animal.areTrained}"><Is></Is> Trained</td>
+            <!--/*@thymesVar id="partInShows" type="java.lang.String"*/-->
+            <td th:text = "${animal.partInShows}">Is in shows</td>
+            <!--/*@thymesVar id="diet" type="java.lang.String"*/-->
+            <td th:text = "${animal.diet}">Diet</td>
+
+<!--            <td> <button class = "small-button"><a th:href="@{'/edit/animal/' + ${animal.id}}">Edit</a></button></td>-->
+<!--            &lt;!&ndash;/*@thymesVar id="id" type="java.lang.Number"*/&ndash;&gt;-->
+<!--            <td> <button class = "small-button"><a th:href="@{'/delete/animal/' + ${animal.id}}">Delete</a></button></td>-->
+
+            <td> <form><button class = "small-button" th:formaction="@{'/edit/animal/' + ${animal.id}}">Edit</button></form></td>
+            <!--/*@thymesVar id="id" type="java.lang.Number"*/-->
+            <td> <form><button class = "small-button" th:formaction="@{'/delete/animal/' + ${animal.id}}">Delete</button></form></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <form><button class = "normal-button" th:formaction="'/directorView'">Return To Main Page</button></form>
+</div>
+</body>
+</html>
